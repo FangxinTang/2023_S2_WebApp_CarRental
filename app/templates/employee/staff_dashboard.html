@@ -1,0 +1,64 @@
+{% extends "employee/templates/staff_template.html" %}
+
+{% block title %}Staff view customer profile{% endblock %}
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+      <div class="col">
+
+          {% if employee_account %}
+          <h1>Welcom back</strong></h1>
+          <hr>
+
+          <div class="card">
+              <div class="card-body">
+
+                  <h4> {{ employee_account[1] }} {{ employee_account[2] }}</h4>
+                  <hr>
+
+                  <p class="text-muted">Staff ID: {{ employee_account[0] }}</p>
+                  <p class="text-muted">Username: {{ employee_account[4] }}</p>
+                  <p class="text-muted">Birthday: {{ employee_account[3] }}</p>
+                  <p class="text-muted">Address: {{ employee_account[5] }}</p>
+                  <p class="text-muted">Email: {{ employee_account[6] }}</p>
+                  <p class="text-muted">Phone: {{ employee_account[7] }}</p>
+                  {% if is_admin %}
+                  <p class="text-muted">Authority Level: Admin</p>
+                  {% else %}
+                  <p class="text-muted">Authority Level: Staff</p>
+                  {% endif %}
+                  
+                <a href="/staff-edit-profile?username={{employee_account[4]}}">
+                    <button class="btn btn-primary">Edit Profile</button>
+                </a>
+
+                <a href="/staff-reset-pass?username={{employee_account[4]}}">
+                    <button class="btn btn-primary">Reset Password</button>
+                </a>
+                  
+                <a href="/staff-view-customer-list">
+                    <button class="btn btn-primary">View Customer Profile</button>
+                </a>
+                  
+                <a href="/staff-view-car-list">
+                    <button class="btn btn-primary">Manage Car Rentals</button>
+                </a>
+                  
+
+              </div>
+
+              {% else %}
+              <h4><strong>User not found</strong></h4>
+              {% endif %}
+          </div>
+      </div>
+
+  </div>
+</div>
+
+
+</div>
+
+{% endblock %}

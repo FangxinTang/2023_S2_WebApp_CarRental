@@ -1,0 +1,49 @@
+{% extends "employee/templates/staff_template.html" %}
+
+{% block title %}Staff View Customer List{% endblock %}
+
+{% block main %}
+
+<div id="list-customers-table" class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Manage Customers</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+            
+                    {% for customer in all_customers %}
+                  <tr>
+                    <td>{{customer[0]}}</td>
+                    <td>{{customer[1]}}</td>
+                    <td>{{customer[2]}}</td>
+                    <td>{{customer[3]}}</td>
+                    <td>{{customer[4]}}</td>
+                    <td>{{customer[5]}}</td>
+                    <td>{{customer[6]}}</td>
+                    <td>
+                        <a href="/staff-view-customer-profile?username={{customer[3]}}">Profile</a>
+                    </td>
+                  </tr>
+                    {% endfor %}
+            
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

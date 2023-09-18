@@ -1,0 +1,36 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Sign In{% endblock %}
+
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <h1>Sign in</h1>
+    <hr>
+
+    <div class="col-4">
+      <!-- placeholder for display -->
+    </div>
+
+    <div class="col-4">
+      <form action="/sign-in" method="POST">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username">
+
+        <label>Password</label>
+        <input type="password" class="form-control" name="password">
+
+        <button type="submit" class="btn btn-primary" id="sign-in-btn">Sign in</button>
+    </form>
+    </div>
+
+    <div class="col-4">
+      <!-- placeholder for display -->
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

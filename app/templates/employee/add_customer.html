@@ -1,0 +1,112 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Add Customer{% endblock %}
+
+
+{% block main %}
+<div class="container">
+  <h4 class="mb-3">Add a New Customer</h4>
+  <hr>
+
+  <form action="/add-customer" method="POST" class="needs-validation">
+
+    <div class="container">
+        <div class="row">
+          <div class="col">
+
+      
+            <div class="form_container">
+              <form action="/add-customer" method="POST">
+                <div class="row">
+                  <div class="col-4">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="first_name" placeholder="First name"
+                      aria-label="First name" required>
+                  </div>
+      
+                  <div class="col-4">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Last name" aria-label="Last name" required>
+                  </div>
+      
+                  <div class="col-4">
+                    <label class="form-label">User Name</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username" aria-label="User name" required>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-4">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" name="address"
+                      placeholder="1234 Queen Street, CBD">
+                  </div>
+      
+                  <div class="col-4">
+                    <label class="form-label">City</label>
+                    <select id="city" class="form-select" name="city">
+                      <option selected>Choose...</option>
+                      <option value="Auckland">Auckland</option>
+                      <option value="Christchurch">Christchurch</option>
+                      <option value="Wellington">Wellington</option>
+                      <option value="Hamilton">Hamilton</option>
+                      <option value="Tauranga">Tauranga</option>
+                    </select>
+                  </div>
+      
+      
+                  <div class="col-4">
+                    <label class="form-label">Post Code</label>
+                    <input type="text" class="form-control" id="inputPostCode" name="postcode" placeholder="0600">
+                  </div>
+      
+                </div>
+      
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                  </div>
+      
+                  <div class="col-6">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="intial pass: easygo12345" required>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-3">
+                    <select id="inputPhoneCountry" class="form-select" name="nzcode" required>
+                      <option selected disabled hidden>Phone Number</option>
+                      <option value="+64">+64</option>
+                    </select>
+                  </div>
+      
+                  <div class="col-3">
+                    <input type="text" class="form-control" id="inputPhonePrefix" name="prefix" placeholder="prefix" required>
+                  </div>
+      
+                  <div class="col-3">
+                    <input type="text" class="form-control" id="inputPhoneNumber1" name="digits_1" placeholder="3 digits" required>
+                  </div>
+      
+                  <div class="col-3">
+                    <input type="text" class="form-control" id="inputPhoneNumber2" name="digits_2" placeholder="3-4 digits" required>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Create a New Customer Account</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+
+
+{% endblock%}

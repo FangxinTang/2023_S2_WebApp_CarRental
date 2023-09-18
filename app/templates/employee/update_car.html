@@ -1,0 +1,42 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Update Car Information{% endblock %}
+
+
+{% block main %}
+
+<div class="container">
+    <h4 class="mb-3">Update Car Information</h4>
+    <hr>
+  
+    <form action="/update-car" method="POST" class="needs-validation">
+ 
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <p>Car ID: {{ car_details[0] }}</p>
+                    <p>Registration Number: {{ car_details[1] }}</p>
+                    <p>Car Model: {{ car_details[2] }} {{ car_details[3] }}</p>
+                    <p>Manufacturing Year: {{ car_details[4] }}</p>
+                    <div class="card-body">
+                        <form action="/update-car" method="POST">
+                            <p>
+                                <label>Seating Capacity:</label>
+                                <input type="number" step="1" name="seating_capacity">
+                            </p>
+                            <p>
+                                <label>Rental Rate:</label>
+                                <input type="number" name="rental_per_day">
+                            </p>
+                            <input type="hidden" name="car_id" value="{{ car_details[0] }}">
+                            <input type="hidden" name="registration_num" value="{{ car_details[1] }}">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endblock %}
+        

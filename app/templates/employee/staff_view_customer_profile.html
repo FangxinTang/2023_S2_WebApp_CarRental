@@ -1,0 +1,42 @@
+{% extends "employee/templates/staff_template.html" %}
+
+{% block title %}Staff View Customer Profile{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <h4 class="mb-3">Customer Profile</h4>
+    <hr>
+
+    <!-- GET method form -->
+
+    <form action="/customer-profile" method="GET" class="needs-validation">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <h4>{{ customer_details[1]}} {{ customer_details[2] }} </h4>
+
+                    <div class="card-body">
+                        <p>Customer ID: {{ customer_details[0] }}</p>
+                        <p>First Name: {{ customer_details[1] }}</p>
+                        <p>Last Name: </p>
+                        <p>Username: {{ customer_details[3] }}</p>
+                        <p>Address: {{ customer_details[4] }}</p>
+                        <p>Email: {{ customer_details[5] }}</p>
+                        <p>Phone: {{ customer_details[6] }}</p>
+                        <!-- Hidden input field to pass customer_username to the POST method -->
+                        <input type="hidden" name="customer_username" value="{{ customer_details[3] }}">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+ 
+    {% endblock %}

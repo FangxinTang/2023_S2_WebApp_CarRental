@@ -1,0 +1,76 @@
+{% extends "employee/templates/staff_template.html" %}
+
+{% block title %}Staff Edit Profile{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <h4 class="mb-3">Edit Personal Profile</h4>
+    <hr>
+    <div class="row">
+
+        <div class="col">
+            <div class="card">
+                <div class="row">
+                    <h3> {{details[1]}} {{details[2]}} </h3>
+                    <hr>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="/staff-edit-profile" method="POST">
+
+                        
+
+                    <form action="/staff-edit-profile" method="POST">
+
+                        <h6>staff ID : {{ details[0] }}</h6>
+                        <h6>UserName : {{ username }}</h6>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" name="address"
+                                    placeholder="1234 Queen Street, CBD">
+                            </div>
+
+
+                            <div class="col-4">
+                                <label for="inputCity" class="form-label">City</label>
+                                <select id="city" class="form-select" name="city">
+                                    <option value="Auckland">Auckland</option>
+                                    <option value="Christchurch">Christchurch</option>
+                                    <option value="Wellington">Wellington</option>
+                                    <option value="Hamilton">Hamilton</option>
+                                    <option value="Tauranga">Tauranga</option>
+                                </select>
+                            </div>
+
+                            <div class="col-4">
+                                <label for="inputPostCode" class="form-label">Post Code</label>
+                                <input type="text" class="form-control" id="inputPostCode" name="postcode"
+                                    placeholder="0600">
+                            </div>
+
+                            <div class="col-4">
+                                <label for="" class="form-label">Birthday</label>
+                                <input type="date" class="form-control" id="" name="birthday">
+                            </div>
+                        </div>
+
+
+
+                        
+                        <input type="hidden" name="username" value="{{ details[4] }}">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

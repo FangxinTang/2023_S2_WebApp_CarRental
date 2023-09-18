@@ -1,0 +1,42 @@
+{% extends "customer/templates/customer_template.html" %}
+
+{% block title %}Customer view car profile{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <h4 class="mb-3">Customer Profile</h4>
+    <hr>
+
+    <!-- GET method form -->
+
+    <form action="/customer-view-car-profile" method="POST" class="needs-validation">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <!-- registration_num, make, model, manufacturing_year, seating_capacity, rental_per_day, car_img -->
+                    <h4>{{ car[2]}} {{ car[3] }} </h4>
+
+                    <div class="card-body">
+                        <p>Registration Number : </p>
+                        <p>Manufacturing Year : {{ car[4] }}</p>
+                        <p>Seating Capacity : {{ car[5] }}</p>
+                        <p>Rental Rate : {{ car[6] }}</p>
+                        <p>Car Image : </p>
+                        <img src="{{car[7]}}" alt="">
+                        <p>Phone : {{ car[6] }}</p>
+                        <input type="hidden" name="customer_username" value="{{ car[3] }}">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

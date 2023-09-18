@@ -1,0 +1,50 @@
+{% extends "employee/templates/staff_template.html" %}
+
+{% block title %}Staff View Car List{% endblock %}
+
+{% block main %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div>
+            <a href="/staff-add-car"><button class="btn btn-primary">Add a Car</button></a>
+        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        {% for row in cars %}
+          <div class="card">
+            <h4>{{ row[2]}} {{ row[3] }}</h4>
+            <img src="{{ row[7] }}" alt="{{row[1]}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+            
+            <div class="card-body">
+              <p>ID: {{row[0]}}</p>
+              <p>Registration Number: {{row[1]}}</p>
+              <p>Make: {{row[2]}}</p>
+              <p>Model: {{row[3]}}</p>
+              <p>Manufacturing Year: {{row[4]}}</p>
+              <p>Seats: {{row[5]}}</p>
+              <p>Rental per Day: ${{row[6]}}</p>
+              <p>Availability: add another database</p>
+              <br>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  
+                  <form action="/staff-delete-car" method="GET">
+                    <a href="/staff-delete-car?registration_num={{row[1]}}" class="btn btn-primary btn-sm">Delete</a>
+                  </form>
+
+                  <form action="/staff-update-car" method="GET">
+                    <a href="/staff-update-car?registration_num={{row[1]}}" class="btn btn-primary btn-sm">Update</a>
+                  </form>
+                  
+  
+  
+              </div>
+            </div>
+          </div>
+        {% endfor%}
+  
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

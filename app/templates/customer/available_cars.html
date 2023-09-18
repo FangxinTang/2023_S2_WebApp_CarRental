@@ -1,0 +1,43 @@
+{% extends "customer/templates/customer_template.html" %}
+
+{% block title %}Customer View Cars{% endblock %}
+
+{% block main %}
+
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        {% for row in cars %}
+        {% if row[1] in available_cars_registration_num %}
+
+          <div class="card">
+            <h4>{{ row[2]}} {{ row[3] }}</h4>
+            <img src="{{ row[7] }}" alt="{{row[1]}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+            
+            <div class="card-body">
+              <p>ID: {{row[0]}}</p>
+              <p>Registration Number: {{row[1]}}</p>
+              <p>Make: {{row[2]}}</p>
+              <p>Model: {{row[3]}}</p>
+              <p>Manufacturing Year: {{row[4]}}</p>
+              <p>Seats: {{row[5]}}</p>
+              <p>Rental per Day: ${{row[6]}}</p>
+              <br>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="/customer-view-car-profile?registration_num={{row[1]}}"><button class="btn btn-primary">View Car Profile</button></a>
+  
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor%}
+  
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Staff{% endblock %}
+
+{% block main %}
+<div id="list-employees-table" class="container">
+    <div class="row">
+        <div class="col">
+          <div class="row">
+            <a href="/add-staff"><button class="btn btn-primary">Add a New Staff</button></a>
+          </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Manage Customers</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+            
+                    {% for row in employees %}
+                    {% if row[8] == 0 %}
+                    <tr>
+                      <td>{{row[0]}}</td>
+                      <td>{{row[1]}}</td>
+                      <td>{{row[2]}}</td>
+                      <td>{{row[3]}}</td>
+                      <td>{{row[4]}}</td>
+                      <td>{{row[5]}}</td>
+                      <td>{{row[6]}}</td>
+                      <td>{{row[7]}}</td>
+                      <td>
+                          <a href="update-staff?staff_username={{row[4]}}">Update</a>          
+                          <a href="delete-staff?staff_username={{row[4]}}">Delete</a>
+                      </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+            
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

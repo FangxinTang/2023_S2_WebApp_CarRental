@@ -1,0 +1,96 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Add Car{% endblock %}
+
+
+{% block main %}
+<div class="container">
+  <h4 class="mb-3">Add a car</h4>
+  <hr>
+
+  <form action="/add-car" method="POST" class="needs-validation" enctype="multipart/form-data">
+
+    <div class="row g-3">
+
+      <div class="col-sm-4">
+        <label class="form-label">Registration Number</label>
+        <input type="text" class="form-control" name="registration_num" required>
+        <div class="invalid-feedback">
+          Registration Number is required.
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Make</label>
+        <select class="form-select" name="make" required>
+          {% for make in MAKES%}
+          <option value="{{make}}">{{make}}</option>
+          {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+          Make is required.
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Model</label>
+        <input type="text" class="form-control" name="model" required>
+        <div class="invalid-feedback">
+          Model is required.
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Manufacturing Year</label>
+        <select class="form-select" name="manufacturing_year" required>
+          {% for year in MANUFACTURING_YEAR%}
+          <option value="{{year}}">{{year}}</option>
+          {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+          Manufacturing year is required.
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Seating Capacity</label>
+        <select class="form-select" name="seating_capacity" required>
+          {% for seats in SEATING_CAPACITY %}
+          <option value="{{seats}}">{{seats}}</option>
+          {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+          Seating capacity is required.
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Rental Rate</label>
+        <input type="text" class="form-control" name="rental_per_day" required>
+        <div class="invalid-feedback">
+          Rental per day is required.
+        </div>
+      </div>
+
+      <div class="row">
+
+        <label for="">Upload Car Image: </label>
+        <input type="file" name="car_img">
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+</div>
+
+
+
+
+{% endblock%}

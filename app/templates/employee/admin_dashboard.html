@@ -1,0 +1,76 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Admin dashboard{% endblock %}
+
+{% block main %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      {% if employee_account %}
+      <h2>Admin Dashboard</strong></h2>
+      <hr>
+
+      <div class="card">
+        <div class="card-body">
+
+          <h4>{{ employee_account[1] }} {{ employee_account[2] }}</h4>
+          <hr>
+
+          <p class="text-muted">Staff ID: {{ employee_account[0] }}</p>
+          <p class="text-muted">Username: {{ employee_account[4] }}</p>
+          <p class="text-muted">Address: {{ employee_account[5] }}</p>
+          <p class="text-muted">Email: {{ employee_account[6] }}</p>
+          <p class="text-muted">Phone: {{ employee_account[7] }}</p>
+          {% if employee_account[8] == 1%}
+          <p class="text-muted">Authority Level: Admin</p>
+          {% else %}
+          <p class="text-muted">Authority Level: Staff</p>
+          {% endif %}
+
+
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Manage Customer
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/add-customer">Add New Customer</a></li>
+            <li><a class="dropdown-item" href="/list-customers">Update Customer
+            Info</a></li>
+            <li><a class="dropdown-item" href="/list-customers">Delete a Customer</a></li>
+          </ul>
+          
+          <a href="/staff">
+            <button class="btn btn-primary" type="button" aria-expanded="false">
+            Manage Staff
+          </button></a>
+       
+
+
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Manage Car Rentals
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/add-car" name="func" value="add">Add a Car</a></li>
+            <li><a class="dropdown-item" href="/cars" name="func" value="update">Update Car
+            Info</a></li>
+            <li><a class="dropdown-item" href="/cars" name="func" value="delete">Delete a Car</a></li>
+          </ul>
+
+          <a href="/cars"><button id="view-cars" class="btn btn-primary">View All Cars</button></a>
+        </div>
+
+        {% else %}
+        <h4><strong>User not found</strong></h4>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

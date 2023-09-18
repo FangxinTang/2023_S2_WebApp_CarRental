@@ -1,0 +1,56 @@
+body {
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategray;
+    background-color: #f1f1f1;
+    margin:0;
+    padding:0;
+}
+
+h1 h2 h3 h4 {
+    font-style: bold;
+    margin-top: 20px;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.sign-in-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 40%;
+    margin: 0 auto;
+}
+
+#home_img_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#home_img_container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#list-customers-table {
+    width: 80%;
+    margin: 0 auto;
+  }
+  

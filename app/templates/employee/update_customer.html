@@ -1,0 +1,68 @@
+{% extends "employee/templates/employee_template.html" %}
+
+{% block title %}Update Customer{% endblock %}
+
+
+{% block main %}
+
+<div class="container">
+    <h4 class="mb-3">Update Customer Information</h4>
+    <hr>
+    <div class="row">
+
+        <div class="col">
+            <div class="card">
+                <div class="row">
+                    <h3> {{customer_details[1]}} {{customer_details[2]}} </h3>
+                    <hr>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="/update-customer" method="POST">
+
+                        <p>Customer ID : {{ customer_details[0] }}</p>
+                        <p>UserName : {{ customer_details[3] }}</p>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" name="address"
+                                    placeholder="1234 Queen Street, CBD">
+                            </div>
+
+
+                            <div class="col-4">
+                                <label for="inputCity" class="form-label">City</label>
+                                <select id="city" class="form-select" name="city">
+                                    <option selected>Choose...</option>
+                                    <option value="Auckland">Auckland</option>
+                                    <option value="Christchurch">Christchurch</option>
+                                    <option value="Wellington">Wellington</option>
+                                    <option value="Hamilton">Hamilton</option>
+                                    <option value="Tauranga">Tauranga</option>
+                                </select>
+                            </div>
+
+                            <div class="col-4">
+                                <label for="inputPostCode" class="form-label">Post Code</label>
+                                <input type="text" class="form-control" id="inputPostCode" name="postcode"
+                                    placeholder="0600">
+                            </div>
+                        </div>
+
+
+
+                        <input type="hidden" name="customer_id" value="{{ customer_details[0] }}">
+                        <input type="hidden" name="customer_username" value="{{ customer_details[3] }}">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+    {% endblock %}
