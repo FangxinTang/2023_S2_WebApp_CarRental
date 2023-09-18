@@ -1,18 +1,7 @@
-# 2023_S2_WebApp_CarRental
-COMP639 Studio Project - Individual Assignment
-
-
-CarRental
-|-app
-    |-static
-    |-templates
-    |-__init__.py
-    |-connect.py
-    |-db.py
-    |-views.py
-    |-employee_views.py
-|-run.py
-
+# Semester Two 2023 | COMP639 Studio Project | Invididual Assignment 
+-------------------------------------
+#### Marks: 82/100
+-------------------------------------
 
 admin login: admin
 pass: adminpass123
